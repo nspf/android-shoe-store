@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
+    </data>
+
+    <!--
+    The ConstraintLayout is more suitable for me here
+    since it allows me to better customize the item layout
+    and thus place some elements positioned relatively, such as the shoe size.
+    -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackground"
+        android:minHeight="88dp"
+        android:paddingStart="?listPreferredItemPaddingLeft"
+        android:paddingEnd="?listPreferredItemPaddingRight">
+
+        <TextView
+            android:id="@+id/shoe_company"
+            style="@style/TextAppearance.AppCompat.Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:singleLine="true"
+            android:text="@{shoe.company}"
+            android:textAllCaps="true"
+            android:textColor="@color/textDarkDisabled"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Adidas" />
+
+        <TextView
+            android:id="@+id/shoe_name"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:singleLine="true"
+            android:text="@{shoe.name}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shoe_company"
+            tools:text="Gazelle" />
+
+        <TextView
+            android:id="@+id/third_text_view"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@{shoe.description}"
+            android:textColor="@color/textDarkSecondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shoe_name"
+            tools:text="The Gazelle OG features the original outsole and soft pigskin suede for the perfect vintage look and feel" />
+
+        <TextView
+            android:id="@+id/shoe_size"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:singleLine="true"
+            android:text="@{String.valueOf(shoe.size)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="11" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
